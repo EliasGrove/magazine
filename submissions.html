@@ -255,6 +255,53 @@
                 0 0 8px rgba(255, 255, 255, 0.3);
         }
 
+        /* Privacy disclaimer styling */
+        .privacy-disclaimer {
+            border: 3px solid #E60026; /* Red border for attention */
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            background: rgba(230, 0, 38, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.2),
+                0 4px 8px rgba(230, 0, 38, 0.1);
+        }
+
+        .disclaimer-title {
+            font-family: "noka", sans-serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #E60026;
+            margin-bottom: 0.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .disclaimer-title::before {
+            content: "⚠";
+            font-size: 1.4rem;
+        }
+
+        .disclaimer-content {
+            font-family: "neue-kabel", sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #f0f0f0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .disclaimer-content p {
+            margin-bottom: 1rem;
+        }
+
+        .disclaimer-content p:last-child {
+            margin-bottom: 0;
+        }
+
         /* Email display styling with thick white border */
         .email-display {
             border: 3px solid #ffffff; /* Thick white border for consistency */
@@ -398,6 +445,20 @@
                 margin-bottom: 1.5rem;
             }
 
+            .privacy-disclaimer {
+                border-width: 3px;
+                padding: 1.2rem;
+                margin: 1.5rem 0;
+            }
+
+            .disclaimer-title {
+                font-size: 1.1rem;
+            }
+
+            .disclaimer-content {
+                font-size: 1rem;
+            }
+
             .email-display {
                 border-width: 3px; /* Slightly thinner on mobile */
             }
@@ -443,6 +504,20 @@
                 margin-bottom: 1.2rem;
             }
 
+            .privacy-disclaimer {
+                border-width: 3px;
+                padding: 1rem;
+                margin: 1.2rem 0;
+            }
+
+            .disclaimer-title {
+                font-size: 1rem;
+            }
+
+            .disclaimer-content {
+                font-size: 0.95rem;
+            }
+
             .email-display {
                 border-width: 3px;
             }
@@ -471,6 +546,15 @@
     <main class="main-wrapper">
         <div class="text-box">
             <h1 class="page-title">Submit Your Work</h1>
+            
+            <!-- Privacy Disclaimer -->
+            <div class="privacy-disclaimer">
+                <div class="disclaimer-title">Important</div>
+                <div class="disclaimer-content">
+                    <p><strong>Do not include sensitive personal information in your submissions or cover letters.</strong> Please avoid sharing phone numbers, home addresses, social security numbers, financial information, or other highly sensitive data.</p>
+                    <p>For your safety and privacy, only include your name, email address, and relevant writing credentials or publication history in your correspondence with us.</p>
+                </div>
+            </div>
             
             <section class="section section-divider">
                 <h2 class="section-title">What We're Looking For</h2>

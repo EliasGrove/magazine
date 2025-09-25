@@ -153,13 +153,14 @@
             display: inline-block;
             background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 4px solid #ffffff; /* Thick white border matching other pages */
             border-radius: 12px;
             padding: 50px;
             max-width: 900px;
             text-align: center;
             box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.3),
+                0 2px 4px rgba(0, 0, 0, 0.2),
+                0 8px 16px rgba(0, 0, 0, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
@@ -212,22 +213,28 @@
             color: #f0f0f0;
             text-decoration: none;
             padding: 15px 30px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 3px solid #ffffff; /* Thick white border for consistency */
             border-radius: 8px;
             background: rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
             letter-spacing: 1px;
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.2),
+                0 3px 6px rgba(0, 0, 0, 0.1);
         }
 
         .submission-link:hover {
             color: #ffffff;
-            border-color: rgba(255, 255, 255, 0.6);
+            border-color: #ffffff;
             background: rgba(255, 255, 255, 0.2);
             text-shadow: 
                 2px 2px 4px rgba(0, 0, 0, 0.8),
                 0 0 8px rgba(255, 255, 255, 0.4);
             transform: translateY(-2px);
+            box-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.25),
+                0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
         /* Footer */
@@ -313,6 +320,7 @@
                 max-width: 100%;
                 background: rgba(0, 0, 0, 0.8);
                 backdrop-filter: blur(20px);
+                border-width: 3px; /* Slightly thinner on mobile */
             }
 
             .page-title {
@@ -331,6 +339,7 @@
             .submission-link {
                 font-size: 1rem;
                 padding: 12px 24px;
+                border-width: 3px; /* Slightly thinner on mobile */
             }
 
             .footer {
@@ -350,6 +359,7 @@
                 padding: 20px;
                 border-radius: 8px;
                 background: rgba(0, 0, 0, 0.85);
+                border-width: 3px;
             }
 
             .page-title {
@@ -367,6 +377,7 @@
             .submission-link {
                 font-size: 0.9rem;
                 padding: 10px 20px;
+                border-width: 3px;
             }
         }
     </style>

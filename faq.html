@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Faun by Moonlight</title>
+    <meta name="description" content="Frequently asked questions about submitting to Faun by Moonlight literary magazine. Learn about our submission process, payment, response times, and publishing rights.">
+
+    <!-- Adobe Fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/tbh1joo.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ETBBLP43M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3ETBBLP43M');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "neue-kabel", sans-serif;
+            background-color: #1a1a1a;
+            color: #f8f8f8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            
+            /* Background images - consistent across all pages */
+            background-image: url('images/1.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: scroll;
+        }
+
+        /* Mobile responsive backgrounds */
+        @media screen and (max-width: 767px) {
+            body {
+                background-image: url('images/1-mobile.png');
+                background-position: center center;
+                min-height: 100vh;
+                min-height: 100svh;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            body {
+                background-image: url('images/1-mobile.png');
+            }
+        }
+
+        /* Background overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        /* Navigation */
+        .nav-header {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family: "dunbar-tall", serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: #f8f8f8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-tab {
+            font-family: "noka", sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            background: none;
+            border: none;
+            color: #d0d0d0;
+            padding: 12px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            color: #ffffff;
+            text-shadow: 
+                3px 3px 6px rgba(0, 0, 0, 0.8),
+                0 0 12px rgba(255, 255, 255, 0.6);
+            transform: translateY(-1px);
+        }
+
+        /* Hamburger menu for mobile */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background-color: #f8f8f8;
+            transition: all 0.3s ease;
+        }
+
+        #nav-toggle {
+            display: none;
+        }
+
+        /* Main content */
+        .main-wrapper {
+            position: relative;
+            z-index: 2;
+            padding: 60px 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .text-box {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 50px;
+            max-width: 900px;
+            text-align: left;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .page-title {
+            font-family: "dunbar-tall", serif;
+            font-weight: 400;
+            font-size: 3.5rem;
+            margin-bottom: 2.5rem;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        /* Bauhaus colors */
+        .word-faun { color: #E60026; }
+        .word-by { color: #0047BB; }
+        .word-moonlight { color: #FFD100; }
+
+        /* FAQ styling */
+        .faq-section {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .faq-section:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .faq-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-question {
+            font-family: "noka", sans-serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.9),
+                0 0 8px rgba(255, 255, 255, 0.3);
+            
+            /* Button styling */
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.05);
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.9),
+                0 0 12px rgba(255, 255, 255, 0.4);
+        }
+
+        .faq-question:focus {
+            outline: 2px solid rgba(255, 255, 255, 0.3);
+            outline-offset: -2px;
+        }
+
+        .faq-answer-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+
+        .faq-section.active .faq-answer-container {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .faq-answer {
+            font-family: "neue-kabel", sans-serif;
+            font-weight: 400;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            color: #e8e8e8;
+            text-align: justify;
+        }
+
+        .faq-answer:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-answer a {
+            color: #e8e8e8;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .faq-answer a:hover {
+            color: #ffffff;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.8),
+                0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .footer-link {
+            color: #d0d0d0;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright {
+            font-family: "neue-kabel", sans-serif;
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body::before {
+                background: rgba(0, 0, 0, 0.75);
+            }
+
+            .nav-header {
+                padding: 20px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-tabs {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(10px);
+                padding: 20px;
+                text-align: center;
+            }
+
+            #nav-toggle:checked + .nav-tabs {
+                display: flex;
+            }
+
+            .main-wrapper {
+                padding: 40px 15px;
+            }
+
+            .text-box {
+                padding: 30px;
+                max-width: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(20px);
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .faq-section {
+                margin-bottom: 1.2rem;
+            }
+
+            .faq-question {
+                font-size: 1.3rem;
+                padding: 1.2rem;
+            }
+
+            .faq-section.active .faq-answer-container {
+                padding: 0 1.2rem 1.2rem;
+            }
+
+            .faq-answer {
+                font-size: 1.2rem;
+                text-align: left;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 10px;
+                padding: 20px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .text-box {
+                padding: 20px;
+                border-radius: 8px;
+                background: rgba(0, 0, 0, 0.85);
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .faq-section {
+                margin-bottom: 1rem;
+            }
+
+            .faq-question {
+                font-size: 1.2rem;
+                padding: 1rem;
+            }
+
+            .faq-section.active .faq-answer-container {
+                padding: 0 1rem 1rem;
+            }
+
+            .faq-answer {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-header">
+        <a href="/" class="logo" id="logo">Faun by Moonlight</a>
+        <label for="nav-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <input type="checkbox" id="nav-toggle">
+        <div class="nav-tabs">
+            <a href="/who-we-are" class="nav-tab">Who We Are</a>
+            <a href="/issues" class="nav-tab">Issues</a>
+            <a href="/submissions" class="nav-tab">Submit Your Work</a>
+            <a href="/faq" class="nav-tab active">FAQ</a>
+            <a href="/support-us" class="nav-tab">Support Us</a>
+            <a href="/contact" class="nav-tab">Contact</a>
+        </div>
+    </nav>
+
+    <main class="main-wrapper">
+        <div class="text-box">
+            <h1 class="page-title">Frequently Asked Questions</h1>
+
+            <section class="faq-section">
+                <button class="faq-question" aria-expanded="false">
+                    What is Faun by Moonlight?
+                </button>
+                <div class="faq-answer-container">
+                    <p class="faq-answer">Faun by Moonlight is a literary magazine that publishes literary fiction.</p>
+                </div>
+            </section>
+
+            <section class="faq-section">
+                <button class="faq-question" aria-expanded="false">
+                    What works are you looking for?
+                </button>
+                <div class="faq-answer-container">
+                    <p class="faq-answer">We seek works that prioritize artistic merit, complex characterization, and emotional resonance. Our focus is on stories that trust the intelligence of their readers and defy easy categorization.</p>
+                </div>
+            </section>
+
+            <section class="faq-section">
+                <button class="faq-question" aria-expanded="false">
+                    What is literary fiction?
+                </button>
+                <div class="faq-answer-container">
+                    <p class="faq-answer">Literary fiction emphasizes psychological depth and thematic complexity through character-driven narratives.</p>
+                </div>
+            </section>
+
+            <section class="faq-section">
+                <button class="faq-question" aria-expanded="false">
+                    Will you consider other kinds of work?
+                </button>
+                <div class="faq-answer-container">
+                    <p class="faq-answer">Our publication's focus is on literary fiction. Your story may contain elements of other genres, but these should only complement and not sustain or justify the work. We're especially interested in works that don't fit easily into commercial genre categories.</p>
+                </div>
+            </section>
+
+            <section class="faq-section">
+                <button class="faq-question" aria-expanded="false">
+                    Do you accept unagented submissions?
+                </button>
+                <div class="faq-answer-container">
+                    <p class="faq-answer">Yes. We are committed to discovering and nurturing new voices directly, without traditional publishing gatekeepers.</p>
+                </div>
+            </section>
+
+            <section class="faq-section">
+                <button class="faq-question" aria-expanded="false">
+                    Do you pay contributors?
+                </button>
+                <div class="faq-answer-container">
+                    <p class="faq-answer">Yes, we pay contributors for accepted work. We offer $20 for pieces under 5,000 words and $50 for pieces 5,000 words and above. While this is a token amount, it helps writers become credentialed in the paying market, which can be valuable for their writing careers and future submissions to higher-paying publications. We aim to increase these payment rates as our publication grows.</p>
+                </div>
+            </section>
+
+            <section class="faq-section">
+                <button class="faq-question" aria-expanded="false">
+                    What is your submission schedule?
+                </button>
+                <div class="faq-answer-container">
+                    <p class="faq-answer">We accept submissions year-round. There are no reading periods.</p>
+                </div>
+            </section>
+
+            <section class="faq-section">
+                <button class="faq-question" aria-expanded="false">
+                    How quickly do you respond to submissions?
+                </button>
+                <div class="faq-answer-container">
+                    <p class="faq-answer">We aim to respond to all submissions within two weeks.</p>
+                </div>
+            </section>
+            
+            <section class="faq-section">
+                <button class="faq-question" aria-expanded="false">
+                    What is your publication schedule?
+                </button>
+                <div class="faq-answer-container">
+                    <p class="faq-answer">We publish monthly digital issues featuring 2-3 short stories through Amazon Kindle. Our first issue is scheduled for release in November 2025.</p>
+                </div>
+            </section>
+
+            <section class="faq-section">
+                <button class="faq-question" aria-expanded="false">
+                    Do I have to pay to submit my work?
+                </button>
+                <div class="faq-answer-container">
+                    <p class="faq-answer">No. There is no fee to submit your work to Faun by Moonlight.</p>
+                </div>
+            </section>
+            
+            <section class="faq-section">
+                <button class="faq-question" aria-expanded="false">
+                    Do you accept simultaneous submissions?
+                </button>
+                <div class="faq-answer-container">
+                    <p class="faq-answer">Yes, we accept simultaneous submissions. We only ask that if your story is accepted elsewhere, please notify us immediately by email so we can withdraw it from consideration.</p>
+                </div>
+            </section>
+
+            <section class="faq-section">
+                <button class="faq-question" aria-expanded="false">
+                    What rights do you acquire when you publish my story?
+                </button>
+                <div class="faq-answer-container">
+                    <p class="faq-answer">We acquire first serial rights only, meaning we have the right to publish your story for the first time in our magazine. After publication, we retain non-exclusive archival rights to keep your story accessible in our digital archives and back issues. All other rights remain with you, and you're free to republish your work elsewhere after our exclusive period ends.</p>
+                </div>
+            </section>
+
+            <section class="faq-section">
+                <button class="faq-question" aria-expanded="false">
+                    How long is your exclusive period?
+                </button>
+                <div class="faq-answer-container">
+                    <p class="faq-answer">We request a three-month exclusive period following publication. During this time, your story cannot be republished elsewhere. After three months, you may submit or republish your work anywhere while we maintain our non-exclusive archival rights.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://x.com/faunbymoonlight" class="footer-link" target="_blank" rel="noopener" aria-label="Follow us on X">𝕏</a>
+            <a href="/contact" class="footer-link" aria-label="Contact us">✉</a>
+        </div>
+        <div class="copyright">
+            © 2025 Faun by Moonlight. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Color the logo words
+        function colorLogo() {
+            const logo = document.getElementById('logo');
+            const colors = ['word-faun', 'word-by', 'word-moonlight'];
+            const words = logo.textContent.split(' ');
+            
+            logo.innerHTML = words.map((word, i) => 
+                `<span class="${colors[i]}">${word}</span>`
+            ).join(' ');
+        }
+
+        // FAQ accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            colorLogo();
+            
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqSection = this.parentElement;
+                    const isActive = faqSection.classList.contains('active');
+                    
+                    // Close all other FAQ sections
+                    document.querySelectorAll('.faq-section.active').forEach(section => {
+                        if (section !== faqSection) {
+                            section.classList.remove('active');
+                            section.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                    
+                    // Toggle the clicked section
+                    if (isActive) {
+                        faqSection.classList.remove('active');
+                        this.setAttribute('aria-expanded', 'false');
+                    } else {
+                        faqSection.classList.add('active');
+                        this.setAttribute('aria-expanded', 'true');
+                    }
+                });
+                
+                // Add keyboard support
+                question.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

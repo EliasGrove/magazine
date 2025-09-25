@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issues - Faun by Moonlight</title>
+    <meta name="description" content="Current and upcoming issues of Faun by Moonlight literary magazine. Our inaugural issue launches November 2025 featuring curated literary fiction.">
+
+    <!-- Adobe Fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/tbh1joo.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* RESPONSIVE BACKGROUND IMAGES */
+        body {
+            /* Using Neue Kabel for body text */
+            font-family: "neue-kabel", sans-serif;
+            background-color: #1a1a1a;
+            color: #f8f8f8;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            
+            /* Default desktop background */
+            background-image: url('images/works.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: scroll;
+            
+            /* Force smooth, high-quality rendering */
+            image-rendering: auto;
+            image-rendering: high-quality;
+            image-rendering: -webkit-optimize-contrast;
+            
+            /* GPU acceleration for smoothness */
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+            
+            /* Prevent pixelation and ensure smooth scaling */
+            -webkit-backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+        }
+
+        /* Mobile devices - use mobile-specific background */
+        @media screen and (max-width: 767px) {
+            body {
+                background-image: url('images/works-mobile.jpg');
+                background-size: cover;
+                background-position: center center;
+                min-height: 100vh;
+                min-height: 100svh; /* Better mobile viewport handling */
+            }
+        }
+
+        /* Tablets in portrait mode */
+        @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            body {
+                background-image: url('images/works-mobile.jpg'); /* Use mobile version for portrait tablets too */
+                background-position: center center;
+            }
+        }
+
+        /* Desktop and large screens (768px+) */
+        @media screen and (min-width: 768px) and (orientation: landscape) {
+            body {
+                background-image: url('images/works.jpg');
+                background-size: 100% auto; /* Show full width, crop height - works well for portrait images */
+                background-position: center top;
+            }
+        }
+
+        /* Large desktop screens (1200px+) */
+        @media screen and (min-width: 1200px) {
+            body {
+                background-image: url('images/works.jpg');
+                background-size: 100% auto;
+                background-position: center top;
+            }
+        }
+
+        /* Very wide screens (1920px+) */
+        @media screen and (min-width: 1920px) {
+            body {
+                background-image: url('images/works.jpg');
+                background-size: 100% auto;
+                background-position: center top;
+            }
+        }
+
+        /* Ultra-wide screens - special handling for portrait images */
+        @media screen and (min-aspect-ratio: 21/9) {
+            body {
+                background-image: url('images/works.jpg');
+                background-size: auto 100%;
+                background-position: center center;
+            }
+        }
+
+        /* iPhone and similar small devices */
+        @media screen and (max-width: 414px) and (max-height: 896px) {
+            body {
+                background-image: url('images/works-mobile.jpg');
+                background-position: center center;
+                background-size: cover;
+                min-height: 100vh;
+                min-height: 100svh;
+            }
+        }
+
+        /* iPad and tablet landscape - portrait image handling */
+        @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            body {
+                background-image: url('images/works.jpg');
+                background-size: auto 100%;
+                background-position: center center;
+            }
+        }
+
+        /* High-DPI displays optimization - SMOOTH rendering */
+        @media screen and (-webkit-min-device-pixel-ratio: 2),
+               screen and (min-resolution: 192dpi),
+               screen and (min-resolution: 2dppx) {
+            body {
+                image-rendering: auto;
+                image-rendering: high-quality;
+                -webkit-image-rendering: -webkit-optimize-contrast;
+            }
+        }
+
+        /* Performance optimization for touch devices */
+        @media (hover: none) and (pointer: coarse) {
+            body {
+                background-attachment: scroll; /* Better performance on touch */
+            }
+        }
+
+        /* Dark overlay for the background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7); /* Matching standard overlay */
+            z-index: 1;
+        }
+
+        /* Dark mode consideration */
+        @media (prefers-color-scheme: dark) {
+            body::before {
+                background: rgba(0, 0, 0, 0.6); /* Slightly less dark overlay */
+            }
+        }
+
+        /* Navigation */
+        .nav-header {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.5); /* Less blur for smoother performance */
+        }
+
+        .logo {
+            /* Using Dunbar Tall for magazine title/logo */
+            font-family: "dunbar-tall", serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: #f8f8f8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-tab {
+            /* Using Noka for navigation */
+            font-family: "noka", sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            background: none;
+            border: none;
+            color: #d0d0d0;
+            padding: 12px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            color: #ffffff;
+            text-shadow: 
+                3px 3px 6px rgba(0, 0, 0, 0.8),
+                0 0 12px rgba(255, 255, 255, 0.6);
+            transform: translateY(-1px);
+        }
+
+        /* Hamburger menu for mobile */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background-color: #f8f8f8;
+            transition: all 0.3s ease;
+        }
+
+        #nav-toggle {
+            display: none;
+        }
+
+        /* Main content wrapper */
+        .main-wrapper {
+            position: relative;
+            z-index: 2;
+            padding: 60px 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        /* Frosted text container - reduced blur for performance */
+        .text-box {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 50px;
+            max-width: 900px;
+            text-align: center;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .page-title {
+            /* Using Alfarn for page titles */
+            font-family: "alfarn", serif;
+            font-weight: 400;
+            font-size: 3.5rem;
+            margin-bottom: 2.5rem; /* Matching standard spacing */
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        /* PRIMARY Bauhaus color classes - RED, BLUE, YELLOW, WHITE ONLY */
+        .bauhaus-red { 
+            color: #E60026; /* Bauhaus Red */
+            color: color(srgb 0.902 0 0.149); /* sRGB specification */
+        }
+        .bauhaus-blue { 
+            color: #0047BB; /* Bauhaus Blue */
+            color: color(srgb 0 0.278 0.733); /* sRGB specification */
+        }
+        .bauhaus-yellow { 
+            color: #FFD100; /* Bauhaus Yellow */
+            color: color(srgb 1 0.820 0); /* sRGB specification */
+        }
+        .bauhaus-white {
+            color: #FFFFFF; /* Pure White */
+            color: color(srgb 1 1 1); /* sRGB specification */
+        }
+
+        /* Color consistency across different displays */
+        @media (color-gamut: srgb) {
+            .bauhaus-red { color: #E60026; }
+            .bauhaus-blue { color: #0047BB; }
+            .bauhaus-yellow { color: #FFD100; }
+            .bauhaus-white { color: #FFFFFF; }
+        }
+
+        @media (color-gamut: p3) {
+            .bauhaus-red { color: color(display-p3 0.902 0 0.149); }
+            .bauhaus-blue { color: color(display-p3 0 0.278 0.733); }
+            .bauhaus-yellow { color: color(display-p3 1 0.820 0); }
+            .bauhaus-white { color: color(display-p3 1 1 1); }
+        }
+
+        /* Coming soon message */
+        .coming-soon {
+            text-align: center;
+        }
+
+        .coming-soon-title {
+            /* Using Noka for chapter headers/section titles */
+            font-family: "noka", sans-serif;
+            font-weight: 600;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            color: #ffd700;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.9),
+                0 0 12px rgba(255, 215, 0, 0.4);
+        }
+
+        .coming-soon-subtitle {
+            /* Using Neue Kabel for body text */
+            font-family: "neue-kabel", sans-serif;
+            font-weight: 400;
+            font-size: 1.3rem; /* Matching standard font size */
+            line-height: 1.8; /* Matching standard line height */
+            color: #e8e8e8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .submission-link {
+            display: inline-block;
+            /* Using Noka for buttons/links */
+            font-family: "noka", sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #f0f0f0;
+            text-decoration: none;
+            padding: 15px 30px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            letter-spacing: 1px;
+        }
+
+        .submission-link:hover {
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.2);
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.8),
+                0 0 8px rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Footer styling - reduced blur */
+        .footer {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgba(0, 0, 0, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .footer-link {
+            color: #d0d0d0;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.8),
+                0 0 8px rgba(255, 255, 255, 0.4);
+        }
+
+        .copyright {
+            /* Using Neue Kabel for body text/copyright */
+            font-family: "neue-kabel", sans-serif;
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Mobile responsiveness - optimized for smooth background */
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll; /* Always scroll on mobile */
+                background-size: cover;
+                background-position: center center;
+            }
+
+            .nav-header {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 20px;
+                background: rgba(0, 0, 0, 0.7); /* Solid background for mobile */
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-tabs {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 20px;
+                text-align: center;
+            }
+
+            #nav-toggle:checked + .nav-tabs {
+                display: flex;
+            }
+
+            .nav-tab {
+                font-size: 1rem;
+                padding: 10px;
+            }
+
+            .main-wrapper {
+                padding: 40px 15px;
+            }
+
+            .text-box {
+                padding: 30px;
+                max-width: 100%;
+                background: rgba(0, 0, 0, 0.8); /* More solid on mobile */
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .coming-soon-title {
+                font-size: 2rem;
+            }
+
+            .coming-soon-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .submission-link {
+                font-size: 1rem;
+                padding: 12px 24px;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 10px;
+                padding: 20px;
+                text-align: center;
+                background: rgba(0, 0, 0, 0.8);
+            }
+            
+            .footer-links {
+                gap: 15px;
+            }
+            
+            .footer-link {
+                font-size: 1.1rem;
+            }
+            
+            .copyright {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                background-size: cover;
+                background-position: center center;
+                min-height: 100vh;
+                min-height: 100svh;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .text-box {
+                padding: 20px;
+                border-radius: 8px;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .coming-soon-title {
+                font-size: 1.6rem;
+            }
+
+            .coming-soon-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .nav-tab {
+                font-size: 0.9rem;
+                padding: 8px;
+            }
+
+            .submission-link {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-header">
+        <a href="/" class="logo">Faun by Moonlight</a>
+        <label for="nav-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <input type="checkbox" id="nav-toggle">
+        <div class="nav-tabs">
+            <a href="/who-we-are" class="nav-tab">Who We Are</a>
+            <a href="/issues" class="nav-tab active">Issues</a>
+            <a href="/submissions" class="nav-tab">Submit Your Work</a>
+            <a href="/faq" class="nav-tab">FAQ</a>
+            <a href="/support-us" class="nav-tab">Support Us</a>
+            <a href="/contact" class="nav-tab">Contact</a>
+        </div>
+    </nav>
+
+    <main class="main-wrapper">
+        <div class="text-box">
+            <h1 class="page-title">Issues</h1>
+            
+            <div class="coming-soon">
+                <h2 class="coming-soon-title">Coming Soon</h2>
+                <p class="coming-soon-subtitle">Our inaugural issue launches November 2025</p>
+                <a href="/submissions" class="submission-link">Submit Your Work</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://x.com/faunbymoonlight" class="footer-link" target="_blank" rel="noopener" aria-label="Follow us on X">𝕏</a>
+            <a href="/contact" class="footer-link" aria-label="Contact us">✉</a>
+        </div>
+        <div class="copyright">
+            © 2025 Faun by Moonlight. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Apply PRIMARY Bauhaus colors only - RED, BLUE, YELLOW, WHITE
+        function applyBauhausColors() {
+            const colors = ['bauhaus-red', 'bauhaus-blue', 'bauhaus-yellow', 'bauhaus-white'];
+            
+            // Apply to logo only
+            const logo = document.querySelector('.logo');
+            if (logo) {
+                const logoWords = logo.textContent.split(' ');
+                let coloredLogo = '';
+                logoWords.forEach((word, index) => {
+                    const colorClass = colors[index % colors.length];
+                    coloredLogo += `<span class="${colorClass}">${word}</span>`;
+                    if (index < logoWords.length - 1) coloredLogo += ' ';
+                });
+                logo.innerHTML = coloredLogo;
+            }
+        }
+
+        // Apply colors when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            applyBauhausColors();
+        });
+    </script>
+</body>
+</html>

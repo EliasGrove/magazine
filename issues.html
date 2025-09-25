@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Issues - Faun by Moonlight</title>
-    <meta name="description" content="Current and upcoming issues of Faun by Moonlight literary magazine. Our inaugural issue launches November 2025 featuring curated literary fiction.">
+    <meta name="description" content="Current and upcoming issues of Faun by Moonlight literary magazine. Our inaugural issue launches November 2025.">
 
     <!-- Adobe Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/tbh1joo.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ETBBLP43M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3ETBBLP43M');
+    </script>
 
     <style>
         * {
@@ -16,133 +25,39 @@
             box-sizing: border-box;
         }
 
-        /* RESPONSIVE BACKGROUND IMAGES */
         body {
-            /* Using Neue Kabel for body text */
             font-family: "neue-kabel", sans-serif;
             background-color: #1a1a1a;
             color: #f8f8f8;
             min-height: 100vh;
-            position: relative;
             display: flex;
             flex-direction: column;
             
-            /* Default desktop background */
-            background-image: url('images/works.jpg');
+            /* Background images - consistent across all pages */
+            background-image: url('images/1.png');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center center;
             background-attachment: scroll;
-            
-            /* Force smooth, high-quality rendering */
-            image-rendering: auto;
-            image-rendering: high-quality;
-            image-rendering: -webkit-optimize-contrast;
-            
-            /* GPU acceleration for smoothness */
-            transform: translateZ(0);
-            backface-visibility: hidden;
-            perspective: 1000px;
-            
-            /* Prevent pixelation and ensure smooth scaling */
-            -webkit-backface-visibility: hidden;
-            -webkit-transform: translateZ(0);
         }
 
-        /* Mobile devices - use mobile-specific background */
+        /* Mobile responsive backgrounds */
         @media screen and (max-width: 767px) {
             body {
-                background-image: url('images/works-mobile.jpg');
-                background-size: cover;
+                background-image: url('images/1-mobile.png');
                 background-position: center center;
-                min-height: 100vh;
-                min-height: 100svh; /* Better mobile viewport handling */
-            }
-        }
-
-        /* Tablets in portrait mode */
-        @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-            body {
-                background-image: url('images/works-mobile.jpg'); /* Use mobile version for portrait tablets too */
-                background-position: center center;
-            }
-        }
-
-        /* Desktop and large screens (768px+) */
-        @media screen and (min-width: 768px) and (orientation: landscape) {
-            body {
-                background-image: url('images/works.jpg');
-                background-size: 100% auto; /* Show full width, crop height - works well for portrait images */
-                background-position: center top;
-            }
-        }
-
-        /* Large desktop screens (1200px+) */
-        @media screen and (min-width: 1200px) {
-            body {
-                background-image: url('images/works.jpg');
-                background-size: 100% auto;
-                background-position: center top;
-            }
-        }
-
-        /* Very wide screens (1920px+) */
-        @media screen and (min-width: 1920px) {
-            body {
-                background-image: url('images/works.jpg');
-                background-size: 100% auto;
-                background-position: center top;
-            }
-        }
-
-        /* Ultra-wide screens - special handling for portrait images */
-        @media screen and (min-aspect-ratio: 21/9) {
-            body {
-                background-image: url('images/works.jpg');
-                background-size: auto 100%;
-                background-position: center center;
-            }
-        }
-
-        /* iPhone and similar small devices */
-        @media screen and (max-width: 414px) and (max-height: 896px) {
-            body {
-                background-image: url('images/works-mobile.jpg');
-                background-position: center center;
-                background-size: cover;
                 min-height: 100vh;
                 min-height: 100svh;
             }
         }
 
-        /* iPad and tablet landscape - portrait image handling */
-        @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
             body {
-                background-image: url('images/works.jpg');
-                background-size: auto 100%;
-                background-position: center center;
+                background-image: url('images/1-mobile.png');
             }
         }
 
-        /* High-DPI displays optimization - SMOOTH rendering */
-        @media screen and (-webkit-min-device-pixel-ratio: 2),
-               screen and (min-resolution: 192dpi),
-               screen and (min-resolution: 2dppx) {
-            body {
-                image-rendering: auto;
-                image-rendering: high-quality;
-                -webkit-image-rendering: -webkit-optimize-contrast;
-            }
-        }
-
-        /* Performance optimization for touch devices */
-        @media (hover: none) and (pointer: coarse) {
-            body {
-                background-attachment: scroll; /* Better performance on touch */
-            }
-        }
-
-        /* Dark overlay for the background */
+        /* Background overlay */
         body::before {
             content: '';
             position: fixed;
@@ -150,15 +65,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.7); /* Matching standard overlay */
+            background: rgba(0, 0, 0, 0.6);
             z-index: 1;
-        }
-
-        /* Dark mode consideration */
-        @media (prefers-color-scheme: dark) {
-            body::before {
-                background: rgba(0, 0, 0, 0.6); /* Slightly less dark overlay */
-            }
         }
 
         /* Navigation */
@@ -169,11 +77,11 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
-            background: rgba(0, 0, 0, 0.5); /* Less blur for smoother performance */
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
         }
 
         .logo {
-            /* Using Dunbar Tall for magazine title/logo */
             font-family: "dunbar-tall", serif;
             font-weight: 800;
             font-size: 1.8rem;
@@ -189,7 +97,6 @@
         }
 
         .nav-tab {
-            /* Using Noka for navigation */
             font-family: "noka", sans-serif;
             font-weight: 600;
             font-size: 1.1rem;
@@ -233,7 +140,7 @@
             display: none;
         }
 
-        /* Main content wrapper */
+        /* Main content */
         .main-wrapper {
             position: relative;
             z-index: 2;
@@ -242,10 +149,10 @@
             flex: 1;
         }
 
-        /* Frosted text container - reduced blur for performance */
         .text-box {
             display: inline-block;
             background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             padding: 50px;
@@ -257,55 +164,25 @@
         }
 
         .page-title {
-            /* Using Alfarn for page titles */
-            font-family: "alfarn", serif;
+            font-family: "dunbar-tall", serif;
             font-weight: 400;
             font-size: 3.5rem;
-            margin-bottom: 2.5rem; /* Matching standard spacing */
+            margin-bottom: 2.5rem;
             letter-spacing: 2px;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
         }
 
-        /* PRIMARY Bauhaus color classes - RED, BLUE, YELLOW, WHITE ONLY */
-        .bauhaus-red { 
-            color: #E60026; /* Bauhaus Red */
-            color: color(srgb 0.902 0 0.149); /* sRGB specification */
-        }
-        .bauhaus-blue { 
-            color: #0047BB; /* Bauhaus Blue */
-            color: color(srgb 0 0.278 0.733); /* sRGB specification */
-        }
-        .bauhaus-yellow { 
-            color: #FFD100; /* Bauhaus Yellow */
-            color: color(srgb 1 0.820 0); /* sRGB specification */
-        }
-        .bauhaus-white {
-            color: #FFFFFF; /* Pure White */
-            color: color(srgb 1 1 1); /* sRGB specification */
-        }
+        /* Bauhaus colors */
+        .word-faun { color: #E60026; }
+        .word-by { color: #0047BB; }
+        .word-moonlight { color: #FFD100; }
 
-        /* Color consistency across different displays */
-        @media (color-gamut: srgb) {
-            .bauhaus-red { color: #E60026; }
-            .bauhaus-blue { color: #0047BB; }
-            .bauhaus-yellow { color: #FFD100; }
-            .bauhaus-white { color: #FFFFFF; }
-        }
-
-        @media (color-gamut: p3) {
-            .bauhaus-red { color: color(display-p3 0.902 0 0.149); }
-            .bauhaus-blue { color: color(display-p3 0 0.278 0.733); }
-            .bauhaus-yellow { color: color(display-p3 1 0.820 0); }
-            .bauhaus-white { color: color(display-p3 1 1 1); }
-        }
-
-        /* Coming soon message */
+        /* Coming soon styling */
         .coming-soon {
             text-align: center;
         }
 
         .coming-soon-title {
-            /* Using Noka for chapter headers/section titles */
             font-family: "noka", sans-serif;
             font-weight: 600;
             font-size: 2.5rem;
@@ -318,11 +195,10 @@
         }
 
         .coming-soon-subtitle {
-            /* Using Neue Kabel for body text */
             font-family: "neue-kabel", sans-serif;
             font-weight: 400;
-            font-size: 1.3rem; /* Matching standard font size */
-            line-height: 1.8; /* Matching standard line height */
+            font-size: 1.3rem;
+            line-height: 1.8;
             color: #e8e8e8;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             margin-bottom: 2rem;
@@ -330,7 +206,6 @@
 
         .submission-link {
             display: inline-block;
-            /* Using Noka for buttons/links */
             font-family: "noka", sans-serif;
             font-weight: 600;
             font-size: 1.1rem;
@@ -355,7 +230,7 @@
             transform: translateY(-2px);
         }
 
-        /* Footer styling - reduced blur */
+        /* Footer */
         .footer {
             position: relative;
             z-index: 10;
@@ -364,6 +239,7 @@
             align-items: center;
             padding: 15px 40px;
             background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -386,13 +262,9 @@
         .footer-link:hover {
             color: #ffffff;
             background: rgba(255, 255, 255, 0.1);
-            text-shadow: 
-                2px 2px 4px rgba(0, 0, 0, 0.8),
-                0 0 8px rgba(255, 255, 255, 0.4);
         }
 
         .copyright {
-            /* Using Neue Kabel for body text/copyright */
             font-family: "neue-kabel", sans-serif;
             font-weight: 400;
             font-size: 0.9rem;
@@ -400,19 +272,14 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
         }
 
-        /* Mobile responsiveness - optimized for smooth background */
+        /* Mobile responsiveness */
         @media (max-width: 768px) {
-            body {
-                background-attachment: scroll; /* Always scroll on mobile */
-                background-size: cover;
-                background-position: center center;
+            body::before {
+                background: rgba(0, 0, 0, 0.75);
             }
 
             .nav-header {
-                flex-direction: row;
-                justify-content: space-between;
                 padding: 20px;
-                background: rgba(0, 0, 0, 0.7); /* Solid background for mobile */
             }
 
             .hamburger {
@@ -427,18 +294,14 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: rgba(0, 0, 0, 0.9);
+                background: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(10px);
                 padding: 20px;
                 text-align: center;
             }
 
             #nav-toggle:checked + .nav-tabs {
                 display: flex;
-            }
-
-            .nav-tab {
-                font-size: 1rem;
-                padding: 10px;
             }
 
             .main-wrapper {
@@ -448,7 +311,8 @@
             .text-box {
                 padding: 30px;
                 max-width: 100%;
-                background: rgba(0, 0, 0, 0.8); /* More solid on mobile */
+                background: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(20px);
             }
 
             .page-title {
@@ -474,30 +338,10 @@
                 gap: 10px;
                 padding: 20px;
                 text-align: center;
-                background: rgba(0, 0, 0, 0.8);
-            }
-            
-            .footer-links {
-                gap: 15px;
-            }
-            
-            .footer-link {
-                font-size: 1.1rem;
-            }
-            
-            .copyright {
-                font-size: 0.8rem;
             }
         }
 
         @media (max-width: 480px) {
-            body {
-                background-size: cover;
-                background-position: center center;
-                min-height: 100vh;
-                min-height: 100svh;
-            }
-
             .logo {
                 font-size: 1.4rem;
             }
@@ -505,6 +349,7 @@
             .text-box {
                 padding: 20px;
                 border-radius: 8px;
+                background: rgba(0, 0, 0, 0.85);
             }
 
             .page-title {
@@ -519,29 +364,16 @@
                 font-size: 1.1rem;
             }
 
-            .nav-tab {
-                font-size: 0.9rem;
-                padding: 8px;
-            }
-
             .submission-link {
                 font-size: 0.9rem;
                 padding: 10px 20px;
-            }
-        }
-
-        /* Reduce motion for users who prefer it */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
             }
         }
     </style>
 </head>
 <body>
     <nav class="nav-header">
-        <a href="/" class="logo">Faun by Moonlight</a>
+        <a href="/" class="logo" id="logo">Faun by Moonlight</a>
         <label for="nav-toggle" class="hamburger">
             <span></span>
             <span></span>
@@ -581,27 +413,20 @@
     </footer>
 
     <script>
-        // Apply PRIMARY Bauhaus colors only - RED, BLUE, YELLOW, WHITE
-        function applyBauhausColors() {
-            const colors = ['bauhaus-red', 'bauhaus-blue', 'bauhaus-yellow', 'bauhaus-white'];
+        // Color the logo words
+        function colorLogo() {
+            const logo = document.getElementById('logo');
+            const colors = ['word-faun', 'word-by', 'word-moonlight'];
+            const words = logo.textContent.split(' ');
             
-            // Apply to logo only
-            const logo = document.querySelector('.logo');
-            if (logo) {
-                const logoWords = logo.textContent.split(' ');
-                let coloredLogo = '';
-                logoWords.forEach((word, index) => {
-                    const colorClass = colors[index % colors.length];
-                    coloredLogo += `<span class="${colorClass}">${word}</span>`;
-                    if (index < logoWords.length - 1) coloredLogo += ' ';
-                });
-                logo.innerHTML = coloredLogo;
-            }
+            logo.innerHTML = words.map((word, i) => 
+                `<span class="${colors[i]}">${word}</span>`
+            ).join(' ');
         }
 
-        // Apply colors when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            applyBauhausColors();
+        // Initialize
+        window.addEventListener('load', () => {
+            colorLogo();
         });
     </script>
 </body>

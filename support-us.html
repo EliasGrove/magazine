@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Us - Faun by Moonlight</title>
+    <meta name="description" content="Support Faun by Moonlight literary magazine through volunteering, purchasing collections, or buying us a coffee.">
+
+    <!-- Adobe Fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/tbh1joo.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ETBBLP43M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3ETBBLP43M');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "neue-kabel", sans-serif;
+            background-color: #1a1a1a;
+            color: #f8f8f8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            
+            /* Background images - consistent across all pages */
+            background-image: url('images/1.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: scroll;
+        }
+
+        /* Mobile responsive backgrounds */
+        @media screen and (max-width: 767px) {
+            body {
+                background-image: url('images/1-mobile.png');
+                background-position: center center;
+                min-height: 100vh;
+                min-height: 100svh;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            body {
+                background-image: url('images/1-mobile.png');
+            }
+        }
+
+        /* Background overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        /* Navigation */
+        .nav-header {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family: "dunbar-tall", serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: #f8f8f8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-tab {
+            font-family: "noka", sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            background: none;
+            border: none;
+            color: #d0d0d0;
+            padding: 12px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            color: #ffffff;
+            text-shadow: 
+                3px 3px 6px rgba(0, 0, 0, 0.8),
+                0 0 12px rgba(255, 255, 255, 0.6);
+            transform: translateY(-1px);
+        }
+
+        /* Hamburger menu for mobile */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background-color: #f8f8f8;
+            transition: all 0.3s ease;
+        }
+
+        #nav-toggle {
+            display: none;
+        }
+
+        /* Main content */
+        .main-wrapper {
+            position: relative;
+            z-index: 2;
+            padding: 60px 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .text-box {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 50px;
+            max-width: 900px;
+            text-align: left;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .page-title {
+            font-family: "dunbar-tall", serif;
+            font-weight: 400;
+            font-size: 3.5rem;
+            margin-bottom: 2.5rem;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        /* Bauhaus colors */
+        .word-faun { color: #E60026; }
+        .word-by { color: #0047BB; }
+        .word-moonlight { color: #FFD100; }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 1.8rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-family: "noka", sans-serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.9),
+                0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
+        .section-content {
+            font-family: "neue-kabel", sans-serif;
+            font-weight: 400;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #e8e8e8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-align: justify;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Introduction section styling */
+        .intro-section {
+            border-left: 4px solid rgba(255, 215, 0, 0.6);
+            padding-left: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Support option styling */
+        .support-option {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .support-option:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .support-option .section-title {
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        /* Coffee link styling */
+        .coffee-link {
+            color: #e8e8e8;
+            text-decoration: underline;
+            transition: all 0.3s ease;
+        }
+
+        .coffee-link:hover {
+            color: #ffffff;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.9),
+                0 0 8px rgba(255, 215, 0, 0.6);
+        }
+
+        /* Section dividers */
+        .section-divider {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1.8rem;
+            margin-bottom: 1.8rem;
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .footer-link {
+            color: #d0d0d0;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright {
+            font-family: "neue-kabel", sans-serif;
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            body::before {
+                background: rgba(0, 0, 0, 0.75);
+            }
+
+            .nav-header {
+                padding: 20px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-tabs {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(10px);
+                padding: 20px;
+                text-align: center;
+            }
+
+            #nav-toggle:checked + .nav-tabs {
+                display: flex;
+            }
+
+            .main-wrapper {
+                padding: 40px 15px;
+            }
+
+            .text-box {
+                padding: 30px;
+                max-width: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                backdrop-filter: blur(20px);
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .section-content {
+                font-size: 1.2rem;
+                text-align: left;
+            }
+
+            .section {
+                margin-bottom: 1.5rem;
+            }
+
+            .section-divider {
+                padding-bottom: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .support-option {
+                padding: 1.2rem;
+                margin-bottom: 1.2rem;
+                background: rgba(0, 0, 0, 0.4);
+            }
+
+            .support-option .section-title {
+                font-size: 1.2rem;
+            }
+
+            .intro-section {
+                margin-bottom: 2rem;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 10px;
+                padding: 20px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .text-box {
+                padding: 20px;
+                border-radius: 8px;
+                background: rgba(0, 0, 0, 0.85);
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .section-content {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                margin-bottom: 1.2rem;
+            }
+
+            .section-divider {
+                padding-bottom: 1.2rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .support-option {
+                padding: 1rem;
+                margin-bottom: 1rem;
+                background: rgba(0, 0, 0, 0.5);
+            }
+
+            .support-option .section-title {
+                font-size: 1.1rem;
+            }
+
+            .intro-section {
+                margin-bottom: 1.5rem;
+                padding-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-header">
+        <a href="/" class="logo" id="logo">Faun by Moonlight</a>
+        <label for="nav-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <input type="checkbox" id="nav-toggle">
+        <div class="nav-tabs">
+            <a href="/who-we-are" class="nav-tab">Who We Are</a>
+            <a href="/issues" class="nav-tab">Issues</a>
+            <a href="/submissions" class="nav-tab">Submit Your Work</a>
+            <a href="/faq" class="nav-tab">FAQ</a>
+            <a href="/support-us" class="nav-tab active">Support Us</a>
+            <a href="/contact" class="nav-tab">Contact</a>
+        </div>
+    </nav>
+
+    <main class="main-wrapper">
+        <div class="text-box">
+            <h1 class="page-title">Support Us</h1>
+            
+            <section class="section intro-section">
+                <div class="section-content">
+                    <p>Our publication is managed by volunteers committed to finding and showcasing great literature. Your support helps us pay writers, purchase the tools we need, and expand our reach.</p>
+                </div>
+            </section>
+
+            <section class="section section-divider">
+                <h2 class="section-title">Ways to Support Our Work</h2>
+                
+                <div class="support-option">
+                    <h3 class="section-title">Read Our Issues</h3>
+                    <div class="section-content">
+                        <p>Our monthly issues are available to read for free with a Kindle Unlimited subscription or for $2.99 each.</p>
+                    </div>
+                </div>
+
+                <div class="support-option">
+                    <h3 class="section-title">Volunteer</h3>
+                    <div class="section-content">
+                        <p>Whether it's editorial work, website development, marketing, beta reading, or other publication tasks, we can always use another helping hand. If you have relevant skills or interest, we welcome your help. Feel free to reach out to us through our contact page.</p>
+                    </div>
+                </div>
+
+                <div class="support-option">
+                    <h3 class="section-title">Purchase our Annual Collections</h3>
+                    <div class="section-content">
+                        <p>Every year we compile our strongest works into a curated yearly issue. These collections will include exclusive content, artwork, opinion pieces and more, providing a way to support the publication directly while enjoying premium literary content.</p>
+                    </div>
+                </div>
+
+                <div class="support-option">
+                    <h3 class="section-title">Buy Us a Coffee</h3>
+                    <div class="section-content">
+                        <p>If you'd like to fuel our late-night editing sessions and help cover operational costs, our <a href="https://buymeacoffee.com/faunbymoonlight" class="coffee-link" target="_blank" rel="noopener">Buy Me a Coffee page</a> helps keep us caffeinated and able to continue paying our writers.</p>
+                    </div>
+                </div>
+
+                <div class="support-option">
+                    <h3 class="section-title">Share Our Content</h3>
+                    <div class="section-content">
+                        <p>Recommend stories to other readers, engage with our social media posts, direct writers to our submission guidelines, or discuss our published work. Organic promotion through readers remains essential for literary publications and helps us reach more potential contributors and supporters.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-content">
+                    <p>Your readership itself constitutes meaningful support. Each person who engages seriously with the work we publish advances our central purpose: bringing you great literature while supporting the writers who create it.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="https://x.com/faunbymoonlight" class="footer-link" target="_blank" rel="noopener" aria-label="Follow us on X">𝕏</a>
+            <a href="/contact" class="footer-link" aria-label="Contact us">✉</a>
+        </div>
+        <div class="copyright">
+            © 2025 Faun by Moonlight. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Color the logo words
+        function colorLogo() {
+            const logo = document.getElementById('logo');
+            const colors = ['word-faun', 'word-by', 'word-moonlight'];
+            const words = logo.textContent.split(' ');
+            
+            logo.innerHTML = words.map((word, i) => 
+                `<span class="${colors[i]}">${word}</span>`
+            ).join(' ');
+        }
+
+        // Initialize
+        window.addEventListener('load', () => {
+            colorLogo();
+        });
+    </script>
+</body>
+</html>

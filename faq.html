@@ -178,19 +178,30 @@
         .word-by { color: #0047BB; }
         .word-moonlight { color: #FFD100; }
 
-        /* FAQ styling */
+        /* FAQ styling with thick white borders */
         .faq-section {
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 4px solid #ffffff;
             border-radius: 8px;
             margin-bottom: 1.5rem;
             background: rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
             overflow: hidden;
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.2),
+                0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .faq-section:hover {
-            border-color: rgba(255, 255, 255, 0.2);
             background: rgba(0, 0, 0, 0.3);
+            box-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.25),
+                0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .faq-section.active {
+            box-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.3),
+                0 6px 10px rgba(0, 0, 0, 0.2);
         }
 
         .faq-section:last-child {
@@ -360,6 +371,7 @@
 
             .faq-section {
                 margin-bottom: 1.2rem;
+                border-width: 3px;
             }
 
             .faq-question {
@@ -401,6 +413,7 @@
 
             .faq-section {
                 margin-bottom: 1rem;
+                border-width: 3px;
             }
 
             .faq-question {

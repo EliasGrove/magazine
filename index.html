@@ -9,19 +9,6 @@
     <!-- Adobe Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/tbh1joo.css">
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ETBBLP43M"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-3ETBBLP43M');
-    </script>
-
-       <!-- Google AdSense (Auto ads site code) -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6209354407417435"
-     crossorigin="anonymous"></script>
-    
     <style>
         * {
             margin: 0;
@@ -44,10 +31,84 @@
             position: relative;
             background-color: #000000;
             background-image: url('images/Cover.png');
-            background-size: Cover.png;
+            /* Key changes for responsive background */
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed;
+            /* Ensure minimum safe area for figures */
+            min-width: 320px; /* Minimum width to prevent extreme compression */
+        }
+
+        /* Responsive background sizing */
+        @media (max-width: 1920px) {
+            .container {
+                /* Scale background proportionally on smaller screens */
+                background-size: auto 100vh;
+                background-position: center center;
+            }
+        }
+
+        @media (max-width: 1400px) {
+            .container {
+                /* Ensure figures stay visible by adjusting background */
+                background-size: 150vw auto;
+                background-position: center center;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                background-size: 180vw auto;
+                background-position: center center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                background-size: 250vw auto;
+                background-position: center center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                background-size: 350vw auto;
+                background-position: center center;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .container {
+                background-size: 450vw auto;
+                background-position: center center;
+            }
+        }
+
+        /* Alternative approach using object-fit simulation */
+        .container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/Cover.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 0;
+            /* Only show this version if needed */
+            display: none;
+        }
+
+        /* Fallback for very small screens */
+        @media (max-width: 320px) {
+            .container {
+                background-image: none;
+            }
+            .container::after {
+                display: block;
+            }
         }
 
         /* Optional: Add overlay for better text readability */
@@ -77,7 +138,7 @@
             font-family: "alfarn", serif;
             font-weight: 800;
             font-size: 6rem;
-            margin-bottom: 1.5rem; /* Restored for spacing */
+            margin-bottom: 1.5rem;
             letter-spacing: 3px;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
         }
@@ -148,10 +209,42 @@
             white-space: nowrap !important;
             border: 0 !important;
         }
+
+        /* Safe area indicators (remove in production) */
+        .debug-guides {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 3;
+            border: 2px solid rgba(255, 0, 0, 0.3);
+            display: none; /* Set to block to see guides */
+        }
+
+        .debug-guides::before,
+        .debug-guides::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 200px;
+            border: 2px solid rgba(0, 255, 0, 0.3);
+        }
+
+        .debug-guides::before {
+            left: 0;
+        }
+
+        .debug-guides::after {
+            right: 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="debug-guides"></div>
         <main class="content">
             <h1 class="title" id="title">Faun by Moonlight</h1>
             <a href="/who-we-are" class="enter-button" id="enter-btn">Enter</a>
@@ -209,6 +302,33 @@
             colorTitle();
             cycleLanguages();
         });
+
+        // Optional: Dynamic background adjustment based on actual viewport
+        function adjustBackgroundForViewport() {
+            const container = document.querySelector('.container');
+            const viewport = {
+                width: window.innerWidth,
+                height: window.innerHeight,
+                ratio: window.innerWidth / window.innerHeight
+            };
+            
+            // Image is 1920x1080 (16:9 ratio ≈ 1.78)
+            const imageRatio = 1920 / 1080;
+            
+            if (viewport.ratio > imageRatio) {
+                // Viewport is wider than image - fit to height and scale width
+                const scale = Math.max(1, viewport.width / 1920 * 1.2); // 20% buffer
+                container.style.backgroundSize = `${1920 * scale}px ${1080 * scale}px`;
+            } else {
+                // Viewport is taller than image - ensure figures aren't cut off
+                const minWidth = Math.max(viewport.width * 1.5, 1920);
+                container.style.backgroundSize = `${minWidth}px auto`;
+            }
+        }
+
+        // Uncomment to use dynamic adjustment
+        // window.addEventListener('resize', adjustBackgroundForViewport);
+        // window.addEventListener('load', adjustBackgroundForViewport);
     </script>
 </body>
 </html>

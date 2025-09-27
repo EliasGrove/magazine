@@ -6,8 +6,8 @@
     <title>Who We Are - Faun by Moonlight</title>
     <meta name="description" content="Faun by Moonlight is an online literary magazine dedicated to showcasing exceptional literary fiction.">
 
-    <!-- Adobe Fonts -->
-    <link rel="stylesheet" href="https://use.typekit.net/tbh1joo.css">
+    <!-- Adobe Fonts - Updated -->
+    <link rel="stylesheet" href="https://use.typekit.net/gyv5ntt.css">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ETBBLP43M"></script>
@@ -37,25 +37,59 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            
+            /* Background images - improved responsive handling */
             background-image: url('images/2.png');
             background-repeat: no-repeat;
-            background-size: cover;
             background-position: center center;
-            background-attachment: scroll;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        /* Improved responsive backgrounds */
+        @media screen and (max-width: 1400px) {
+            body {
+                background-size: auto 100vh;
+                background-position: center center;
+            }
+        }
+
+        @media screen and (max-width: 1024px) {
+            body {
+                background-size: 120vw auto;
+                background-position: center center;
+            }
         }
 
         @media screen and (max-width: 767px) {
             body {
-                background-image: url('image/2.png');
+                background-image: url('images/2-mobile.png');
+                background-size: cover;
                 background-position: center center;
+                background-attachment: scroll;
                 min-height: 100vh;
                 min-height: 100svh;
             }
         }
 
-        @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+        @media screen and (max-width: 480px) {
             body {
-                background-image: url('image/2.png');
+                background-size: 150vw auto;
+                background-position: center center;
+            }
+        }
+
+        @media screen and (max-width: 320px) {
+            body {
+                background-size: 200vw auto;
+                background-position: center center;
+            }
+        }
+
+        @media screen and (max-width: 280px) {
+            body {
+                background-size: contain;
+                background-position: center top;
             }
         }
 
@@ -82,7 +116,7 @@
 
         .logo {
             font-family: "alfarn", serif;
-            font-weight: 800;
+            font-weight: 400; /* Updated to Regular weight */
             font-size: 1.8rem;
             color: #f8f8f8;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -96,8 +130,8 @@
         }
 
         .nav-tab {
-            font-family: "noka", sans-serif;
-            font-weight: 600;
+            font-family: "dunbar-tall", sans-serif; /* Updated to magazine font */
+            font-weight: 700; /* Updated weight */
             font-size: 1.1rem;
             letter-spacing: 1px;
             background: none;
@@ -218,6 +252,123 @@
                 0 3px 6px rgba(0, 0, 0, 0.1);
         }
 
+        /* AdBlock Detection Modal */
+        .adblock-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .adblock-content {
+            background: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 90%;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .adblock-title {
+            font-family: "alfarn", serif;
+            font-weight: 400;
+            font-size: 2.5rem;
+            color: #f8f8f8;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .adblock-title .word-faun { color: #E60026; }
+        .adblock-title .word-by { color: #0047BB; }
+        .adblock-title .word-moonlight { color: #FFD100; }
+
+        .adblock-text {
+            font-family: "neue-kabel", sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #d0d0d0;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .adblock-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .adblock-btn {
+            font-family: "dunbar-tall", sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .adblock-btn-primary {
+            background: #E60026;
+            color: white;
+        }
+
+        .adblock-btn-primary:hover {
+            background: #c50020;
+            transform: translateY(-2px);
+        }
+
+        .adblock-btn-secondary {
+            background: transparent;
+            color: #d0d0d0;
+            border: 2px solid #666;
+        }
+
+        .adblock-btn-secondary:hover {
+            background: #666;
+            color: white;
+        }
+
+        .adblock-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #999;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+            line-height: 1;
+        }
+
+        .adblock-close:hover {
+            color: #fff;
+        }
+
+        /* AdBlock test element */
+        .ads-test {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            background: transparent;
+        }
+
         /* Footer */
         .footer {
             position: relative;
@@ -314,6 +465,28 @@
                 text-align: left;
             }
 
+            .adblock-content {
+                padding: 30px 20px;
+            }
+
+            .adblock-title {
+                font-size: 2rem;
+            }
+
+            .adblock-text {
+                font-size: 1rem;
+            }
+
+            .adblock-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .adblock-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+
             .footer {
                 flex-direction: column;
                 gap: 10px;
@@ -341,10 +514,46 @@
             .content-text {
                 font-size: 1.1rem;
             }
+
+            .adblock-title {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- AdBlock Detection Test Element -->
+    <div class="ads ads-test" id="ads-test"></div>
+
+    <!-- AdBlock Modal -->
+    <div class="adblock-modal" id="adblock-modal">
+        <div class="adblock-content">
+            <button class="adblock-close" id="adblock-close" aria-label="Close">&times;</button>
+            <h2 class="adblock-title">
+                <span class="word-faun">Faun</span> 
+                <span class="word-by">by</span> 
+                <span class="word-moonlight">Moonlight</span>
+            </h2>
+            <div class="adblock-text">
+                <p>We're dedicated to showcasing exceptional literature and supporting emerging voices in the literary community. To sustain our mission, we've partnered with ethical advertising networks.</p>
+                
+                <p>By allowing ads on our site, you help us:</p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>Pay our featured writers fairly for their work</li>
+                    <li>Cover hosting and technical infrastructure costs</li>
+                    <li>Reach new readers and expand our literary community</li>
+                    <li>Continue publishing quality literature without subscription fees</li>
+                </ul>
+                
+                <p>We understand your browsing experience matters and appreciate your consideration in supporting independent literary publishing.</p>
+            </div>
+            <div class="adblock-buttons">
+                <button class="adblock-btn adblock-btn-primary" id="understand-btn">I Understand</button>
+                <button class="adblock-btn adblock-btn-secondary" id="remind-later">Remind Me Later</button>
+            </div>
+        </div>
+    </div>
+
     <nav class="nav-header">
         <a href="/" class="logo" id="logo">Faun by Moonlight</a>
         <label for="nav-toggle" class="hamburger">
@@ -386,6 +595,49 @@
     </footer>
 
     <script>
+        // AdBlock Detection
+        function detectAdBlock() {
+            return new Promise((resolve) => {
+                const testAd = document.getElementById('ads-test');
+                
+                // Check if element is hidden by adblocker
+                if (testAd) {
+                    const rect = testAd.getBoundingClientRect();
+                    const isHidden = rect.height === 0 || 
+                                   window.getComputedStyle(testAd).display === 'none' ||
+                                   window.getComputedStyle(testAd).visibility === 'hidden';
+                    resolve(isHidden);
+                } else {
+                    resolve(true); // Assume adblock if element missing
+                }
+            });
+        }
+
+        // Show AdBlock Modal
+        function showAdBlockModal() {
+            const modal = document.getElementById('adblock-modal');
+            const hasSeenModal = localStorage.getItem('fbm-adblock-seen');
+            const remindLater = localStorage.getItem('fbm-adblock-remind');
+            const now = Date.now();
+            
+            // Don't show if user chose "I understand" or if remind later is still active
+            if (hasSeenModal === 'understood') return;
+            if (remindLater && now < parseInt(remindLater)) return;
+            
+            modal.style.display = 'flex';
+            
+            // Fade in animation
+            setTimeout(() => {
+                modal.style.opacity = '1';
+            }, 10);
+        }
+
+        // Hide AdBlock Modal
+        function hideAdBlockModal() {
+            const modal = document.getElementById('adblock-modal');
+            modal.style.display = 'none';
+        }
+
         // Color the logo words
         function colorLogo() {
             const logo = document.getElementById('logo');
@@ -396,9 +648,55 @@
             ).join(' ');
         }
 
-        // Initialize
-        window.addEventListener('load', () => {
+        // Initialize page
+        window.addEventListener('load', async () => {
             colorLogo();
+            
+            // Check for AdBlock after page loads
+            setTimeout(async () => {
+                const isAdBlockActive = await detectAdBlock();
+                if (isAdBlockActive) {
+                    setTimeout(showAdBlockModal, 2000); // Show after 2 seconds
+                }
+            }, 1000);
+        });
+
+        // Modal event handlers
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('adblock-modal');
+            const closeBtn = document.getElementById('adblock-close');
+            const understandBtn = document.getElementById('understand-btn');
+            const remindBtn = document.getElementById('remind-later');
+
+            // Close modal handlers
+            closeBtn.addEventListener('click', hideAdBlockModal);
+            
+            // Click outside to close
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    hideAdBlockModal();
+                }
+            });
+
+            // "I Understand" button
+            understandBtn.addEventListener('click', () => {
+                localStorage.setItem('fbm-adblock-seen', 'understood');
+                hideAdBlockModal();
+            });
+
+            // "Remind Me Later" button (24 hours)
+            remindBtn.addEventListener('click', () => {
+                const remindTime = Date.now() + (24 * 60 * 60 * 1000); // 24 hours
+                localStorage.setItem('fbm-adblock-remind', remindTime.toString());
+                hideAdBlockModal();
+            });
+
+            // Escape key to close
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    hideAdBlockModal();
+                }
+            });
         });
     </script>
 </body>

@@ -262,17 +262,17 @@
             margin-bottom: 2.5rem;
         }
 
-        /* Support option cards with thick border and subtle depth */
+        /* Support option cards with thick border and subtle depth - now collapsible */
         .support-option {
             border: 3px solid #ffffff; /* Thick white border */
             border-radius: 8px;
-            padding: 1.5rem;
             margin-bottom: 1.5rem;
             background: rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
             box-shadow:
                 0 1px 3px rgba(0, 0, 0, 0.2),
                 0 3px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
 
         .support-option:hover {
@@ -283,9 +283,51 @@
                 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
+        .support-option-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .support-option-header:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
         .support-option .section-title {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0;
             font-size: 1.3rem;
+            flex: 1;
+        }
+
+        .toggle-icon {
+            font-family: "dunbar-tall", sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-left: 1rem;
+            transition: transform 0.3s ease;
+            user-select: none;
+        }
+
+        .support-option.expanded .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .support-option-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .support-option.expanded .support-option-content {
+            max-height: 500px; /* Adjust based on content needs */
+        }
+
+        .support-option-inner {
+            padding: 0 1.5rem 1.5rem 1.5rem;
         }
 
         /* Coffee link */

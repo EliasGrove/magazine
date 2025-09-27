@@ -40,19 +40,22 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            /* Background images - consistent across all pages */
-            background-image: url('images/1.png');
+            
+            /* Background images - updated to use image 6 with proper sizing */
+            background-image: url('images/6.png');
             background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            background-attachment: scroll;
+            background-size: 100% 100vh;
+            background-position: center top;
+            background-attachment: fixed;
         }
 
         /* Mobile responsive backgrounds */
         @media screen and (max-width: 767px) {
             body {
-                background-image: url('images/1-mobile.png');
-                background-position: center center;
+                background-image: url('images/6-mobile.png');
+                background-size: 100% 100vh;
+                background-position: center top;
+                background-attachment: fixed;
                 min-height: 100vh;
                 min-height: 100svh;
             }
@@ -60,7 +63,10 @@
 
         @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
             body {
-                background-image: url('images/1-mobile.png');
+                background-image: url('images/6-mobile.png');
+                background-size: 100% 100vh;
+                background-position: center top;
+                background-attachment: fixed;
             }
         }
 

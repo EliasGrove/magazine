@@ -575,10 +575,17 @@
             }
 
             .support-option {
-                padding: 1.2rem;
                 margin-bottom: 1.2rem;
                 background: rgba(0, 0, 0, 0.3);
                 border-width: 3px;
+            }
+
+            .support-option-header {
+                padding: 1.2rem;
+            }
+
+            .support-option-inner {
+                padding: 0 1.2rem 1.2rem 1.2rem;
             }
 
             .support-option .section-title {
@@ -653,10 +660,17 @@
             }
 
             .support-option {
-                padding: 1rem;
                 margin-bottom: 1rem;
                 background: rgba(0, 0, 0, 0.4);
                 border-width: 3px;
+            }
+
+            .support-option-header {
+                padding: 1rem;
+            }
+
+            .support-option-inner {
+                padding: 0 1rem 1rem 1rem;
             }
 
             .support-option .section-title {
@@ -739,44 +753,86 @@
                 <h2 class="section-title">Ways to Support Our Work</h2>
                 
                 <div class="support-option">
-                    <h3 class="section-title">Allow Ads While Reading</h3>
-                    <div class="section-content">
-                        <p>Google AdSense allows visitors to support us without any other compromise. You don't need to buy subscriptions, make donations, or purchase anything. Simply disable your ad blocker while visiting our site, and you're already helping independent literature thrive. This small action directly supports our writers and keeps quality literary content accessible to everyone.</p>
+                    <div class="support-option-header" onclick="toggleSupport(this)">
+                        <h3 class="section-title">Allow Ads While Reading</h3>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="support-option-content">
+                        <div class="support-option-inner">
+                            <div class="section-content">
+                                <p>Google AdSense allows visitors to support us without any other compromise. You don't need to buy subscriptions, make donations, or purchase anything. Simply disable your ad blocker while visiting our site, and you're already helping independent literature thrive. This small action directly supports our writers and keeps quality literary content accessible to everyone.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="support-option">
-                    <h3 class="section-title">Read Our Issues</h3>
-                    <div class="section-content">
-                        <p>Our monthly issues are available to read for free with a Kindle Unlimited subscription or for $2.99 each.</p>
+                    <div class="support-option-header" onclick="toggleSupport(this)">
+                        <h3 class="section-title">Read Our Issues</h3>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="support-option-content">
+                        <div class="support-option-inner">
+                            <div class="section-content">
+                                <p>Our monthly issues are available to read for free with a Kindle Unlimited subscription or for $2.99 each.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="support-option">
-                    <h3 class="section-title">Volunteer</h3>
-                    <div class="section-content">
-                        <p>Whether it's editorial work, website development, marketing, beta reading, or other publication tasks, we can always use another helping hand. If you have relevant skills or interest, we welcome your help. Feel free to reach out to us through our contact page.</p>
+                    <div class="support-option-header" onclick="toggleSupport(this)">
+                        <h3 class="section-title">Volunteer</h3>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="support-option-content">
+                        <div class="support-option-inner">
+                            <div class="section-content">
+                                <p>Whether it's editorial work, website development, marketing, beta reading, or other publication tasks, we can always use another helping hand. If you have relevant skills or interest, we welcome your help. Feel free to reach out to us through our contact page.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="support-option">
-                    <h3 class="section-title">Purchase our Annual Collections</h3>
-                    <div class="section-content">
-                        <p>Every year we compile our strongest works into a curated yearly issue. These collections will include exclusive content, artwork, opinion pieces and more, providing a way to support the publication directly while enjoying premium literary content.</p>
+                    <div class="support-option-header" onclick="toggleSupport(this)">
+                        <h3 class="section-title">Purchase our Annual Collections</h3>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="support-option-content">
+                        <div class="support-option-inner">
+                            <div class="section-content">
+                                <p>Every year we compile our strongest works into a curated yearly issue. These collections will include exclusive content, artwork, opinion pieces and more, providing a way to support the publication directly while enjoying premium literary content.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="support-option">
-                    <h3 class="section-title">Buy Us a Coffee</h3>
-                    <div class="section-content">
-                        <p>If you'd like to fuel our late-night editing sessions and help cover operational costs, our <a href="https://buymeacoffee.com/faunbymoonlight" class="coffee-link" target="_blank" rel="noopener">Buy Me a Coffee page</a> helps keep us caffeinated and able to continue paying our writers.</p>
+                    <div class="support-option-header" onclick="toggleSupport(this)">
+                        <h3 class="section-title">Buy Us a Coffee</h3>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="support-option-content">
+                        <div class="support-option-inner">
+                            <div class="section-content">
+                                <p>If you'd like to fuel our late-night editing sessions and help cover operational costs, our <a href="https://buymeacoffee.com/faunbymoonlight" class="coffee-link" target="_blank" rel="noopener">Buy Me a Coffee page</a> helps keep us caffeinated and able to continue paying our writers.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="support-option">
-                    <h3 class="section-title">Share Our Content</h3>
-                    <div class="section-content">
-                        <p>Recommend stories to other readers, engage with our social media posts, direct writers to our submission guidelines, or discuss our published work. Organic promotion through readers remains essential for literary publications and helps us reach more potential contributors and supporters.</p>
+                    <div class="support-option-header" onclick="toggleSupport(this)">
+                        <h3 class="section-title">Share Our Content</h3>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="support-option-content">
+                        <div class="support-option-inner">
+                            <div class="section-content">
+                                <p>Recommend stories to other readers, engage with our social media posts, direct writers to our submission guidelines, or discuss our published work. Organic promotion through readers remains essential for literary publications and helps us reach more potential contributors and supporters.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -851,6 +907,18 @@
             logo.innerHTML = words.map((word, i) => 
                 `<span class="${colors[i]}">${word}</span>`
             ).join(' ');
+        }
+
+        // Toggle support option expand/collapse
+        function toggleSupport(header) {
+            const supportOption = header.parentElement;
+            const isExpanded = supportOption.classList.contains('expanded');
+            
+            if (isExpanded) {
+                supportOption.classList.remove('expanded');
+            } else {
+                supportOption.classList.add('expanded');
+            }
         }
 
         // Initialize page
